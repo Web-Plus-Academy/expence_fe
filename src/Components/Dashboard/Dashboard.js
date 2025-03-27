@@ -11,7 +11,7 @@ function Dashboard() {
     useEffect(() => {
         getIncomes();
         getExpenses();
-    }, []);
+    }, [getIncomes, getExpenses]);
 
     return (
         <DashboardStyled>
