@@ -15,23 +15,27 @@ export const GlobalProvider = ({children}) => {
 
     //calculate incomes
     const addIncome = async (income) => {
-        const response = await axios.post(`${BASE_URL}add-income`, income)
-            .catch((err) =>{
-                setError(err.response.data.message)
-            })
-        getIncomes()
-    }
+        await axios.post(`${BASE_URL}add-income`, income)
+            .catch((err) => {
+                setError(err.response.data.message);
+            });
+        getIncomes();
+    };
 
     const getIncomes = async () => {
-        const response = await axios.get(`${BASE_URL}get-incomes`)
-        setIncomes(response.data)
-        console.log(response.data)
-    }
+        try {
+            const { data } = await axios.get(`${BASE_URL}get-incomes`);
+            setIncomes(data);
+            console.log(data);
+        } catch (error) {
+            setError(error.response.data.message);
+        }
+    };
 
     const deleteIncome = async (id) => {
-        const res  = await axios.delete(`${BASE_URL}delete-income/${id}`)
-        getIncomes()
-    }
+        await axios.delete(`${BASE_URL}delete-income/${id}`);
+        getIncomes();
+    };
 
     const totalIncome = () => {
         let totalIncome = 0;
@@ -45,24 +49,28 @@ export const GlobalProvider = ({children}) => {
 
     //calculate incomes
     const addExpense = async (income) => {
-        const response = await axios.post(`${BASE_URL}add-expense`, income)
-            .catch((err) =>{
-                setError(err.response.data.message)
-            })
-        getExpenses()
-    }
+        await axios.post(`${BASE_URL}add-expense`, income)
+            .catch((err) => {
+                setError(err.response.data.message);
+            });
+        getExpenses();
+    };
 
     const getExpenses = async () => {
-        const response = await axios.get(`${BASE_URL}get-expenses`)
-        setExpenses(response.data)
-        console.log(response.data)
-    }
+        try {
+            const { data } = await axios.get(`${BASE_URL}get-expenses`);
+            setExpenses(data);
+            console.log(data);
+        } catch (error) {
+            setError(error.response.data.message);
+        }
+    };
 
     const deleteExpense = async (id) => {
-        const res  = await axios.delete(`${BASE_URL}delete-expense/${id}`)
-        getExpenses()
-    }
-
+        await axios.delete(`${BASE_URL}delete-expense/${id}`);
+        getExpenses();
+    };
+    
     const totalExpenses = () => {
         let totalIncome = 0;
         expenses.forEach((income) =>{

@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import avatar from '../../img/avatar.png'
 // import { signout } from '../../utils/Icons'
 import { menuItems } from '../../utils/menuItems'
-import InvoiceGenerator from '../InvoiceGenerator/Invoice'
 
 function Navigation({active, setActive}) {
     
