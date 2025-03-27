@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 const BASE_URL = "https://expence-be.onrender.com/api/v1/";
@@ -10,15 +10,17 @@ export const GlobalProvider = ({ children }) => {
     const [expenses, setExpenses] = useState([]);
     const [error, setError] = useState(null);
 
-    // Fetch incomes & expenses only when component mounts
-    useEffect(() => {
-        fetchData();
-    }, []); // Empty dependency array ensures it runs only once
-
-    const fetchData = async () => {
-        await getIncomes();
-        await getExpenses();
-    };
+    
+        // Memoized fetchData to prevent infinite re-renders
+        const fetchData = useCallback(async () => {
+            await getIncomes();
+            await getExpenses();
+        }, []); // No dependencies so it remains stable
+    
+        // Fetch incomes & expenses only when the component mounts
+        useEffect(() => {
+            fetchData();
+        }, [fetchData]); // Dependency array ensures it's called only once
 
     // Fetch incomes
     const getIncomes = async () => {
