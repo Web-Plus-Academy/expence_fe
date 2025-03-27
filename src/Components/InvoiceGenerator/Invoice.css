@@ -1,0 +1,29 @@
+.download-btn {
+    background-color: orange; /* Use your primary color */
+    color: #fff;
+    padding: 8px;
+    border-radius: 50px;
+    border: none;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.download-btn:hover {
+    background-color: var(--color-green); /* Use a different color for hover effect */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.download-btn:active {
+    background-color: var(--color-dark); /* Darken on active */
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.download-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-focus); /* Add a focus ring if needed */
+}
