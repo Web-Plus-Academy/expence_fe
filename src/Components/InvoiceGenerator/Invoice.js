@@ -4,7 +4,7 @@ import './Invoice.css'
 const InvoiceGenerator = ({ INV }) => {
     const downloadInvoice = async (paymentId) => {
         try {
-            const response = await fetch(`http://localhost:5000/invoice/${paymentId}`, {
+            const response = await fetch(`https://expence-be.onrender.com/invoice/${paymentId}`, {
                 method: 'GET',
             });
             const blob = await response.blob();
