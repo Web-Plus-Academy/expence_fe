@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components'
+import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../context/globalContext';
 import History from '../../History/History';
 import { InnerLayout } from '../../styles/Layouts';
 import Chart from '../Chart/Chart';
+import './Dashboard.css';
 
 function Dashboard() {
     const { totalExpenses, incomes, expenses, totalIncome, totalBalance, getIncomes, getExpenses } = useGlobalContext();
@@ -14,7 +14,7 @@ function Dashboard() {
     }, [getIncomes, getExpenses]);
 
     return (
-        <DashboardStyled>
+        <div className="dashboard">
             <InnerLayout>
                 <h1>All Transactions</h1>
                 <div className="stats-con">
@@ -37,7 +37,7 @@ function Dashboard() {
                     </div>
                     <div className="history-con">
                         <History />
-                        <h2 className="salary-title">Min <span>Income</span>Max</h2>
+                        <h2 className="salary-title">Min <span>Income</span> Max</h2>
                         <div className="salary-item">
                             <p>
                                 ₹{Math.min(...incomes.map(item => item.amount)).toLocaleString()}
@@ -46,7 +46,7 @@ function Dashboard() {
                                 ₹{Math.max(...incomes.map(item => item.amount)).toLocaleString()}
                             </p>
                         </div>
-                        <h2 className="salary-title">Min <span>Expense</span>Max</h2>
+                        <h2 className="salary-title">Min <span>Expense</span> Max</h2>
                         <div className="salary-item">
                             <p>
                                 ₹{Math.min(...expenses.map(item => item.amount)).toLocaleString()}
@@ -58,86 +58,8 @@ function Dashboard() {
                     </div>
                 </div>
             </InnerLayout>
-        </DashboardStyled>
+        </div>
     );
 }
 
-
-const DashboardStyled = styled.div`
-    .stats-con{
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 2rem;
-        .chart-con{
-            grid-column: 1 / 4;
-            height: 400px;
-            .amount-con{
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 2rem;
-                margin-top: 1rem;
-                .income, .expense{
-                    grid-column: span 2;
-                }
-                .income, .expense, .balance{
-                    font-size:10px;
-                    background: #FCF6F9;
-                    border: 2px solid #FFFFFF;
-                    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-                    border-radius: 20px;
-                    padding: 1rem;
-                    p{
-                        font-size: 1.5rem;
-                        font-weight: 700;
-                    }
-                }
-
-                .balance{
-                    grid-column: 2 / 4;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    margin-bottom:10px;
-                    p{
-                        color: var(--color-green);
-                        opacity: 0.6;
-                        font-size: 2rem;
-                    }
-                }
-            }
-        }
-
-        .history-con{
-            grid-column: 4 / -1;
-            h2{
-                margin: 1rem 0;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            .salary-title{
-                font-size: 1rem;
-                span{
-                    font-size: 1.2rem;
-                }
-            }
-            .salary-item{
-                background: #FCF6F9;
-                border: 2px solid #FFFFFF;
-                box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
-                padding: 1rem;
-                border-radius: 20px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                p{
-                    font-weight: 600;
-                    font-size: 1rem;
-                }
-            }
-        }
-    }
-`;
-
-export default Dashboard
+export default Dashboard;

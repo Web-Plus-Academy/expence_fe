@@ -1,0 +1,62 @@
+.app {
+    height: 100vh;
+    background-image: url('./img/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  
+  /* Menu Toggle Button */
+  .menu-toggle {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black; /* Button color changed to black */
+    z-index: 1000;
+  }
+  
+  /* Main Content */
+  main {
+    flex: 1;
+    background: rgba(252, 246, 249, 0.78);
+    border: 3px solid #ffffff;
+    backdrop-filter: blur(4.5px);
+    border-radius: 32px;
+    overflow-x: hidden;
+    padding: 2rem;
+  }
+  
+  main::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+  
+    .navigation-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 260px;
+      background: rgba(252, 246, 249, 0.9);
+      z-index: 999;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .navigation-container.open {
+      transform: translateX(0);
+      box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+  

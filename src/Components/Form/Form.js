@@ -70,12 +70,12 @@ function Form() {
             <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
                     <option value=""  disabled >Select Option</option>
-                    <option value="Placement-Training">Placement Training</option>
-                    <option value="FSD-Online">FSD - Online</option>
-                    <option value="FSD-Offline">FSD - Offline</option>
+                    <option value="FSD-Courses">FSD Courses</option>  
+                    <option value="Fellowship">Fellowship</option>  
                     <option value="Mini-Courses">Mini Courses</option>  
+                    <option value="Specialized">Specialized</option>
                     <option value="Internship">Internship</option>
-                    <option value="AI-Courses">AI Courses</option>
+                    <option value="Training+Internship">Training + Internship</option>
                     <option value="Summer-Camp">Summer Camp</option>
                     <option value="OTT-Courses">OTT</option>
                     <option value="Certification-Exam">Certification Exam</option>
