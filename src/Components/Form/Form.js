@@ -76,7 +76,7 @@ function Form() {
                     <option value="Specialized">Specialized</option>
                     <option value="Internship">Internship</option>
                     <option value="Training+Internship">Training + Internship</option>
-                    <option value="Summer-Camp">Summer Camp</option>
+                    <option value="NEW_GEN-courses">New_Gen Courses</option>
                     <option value="OTT-Courses">OTT</option>
                     <option value="Certification-Exam">Certification Exam</option>
                     <option value="other">Other</option>
